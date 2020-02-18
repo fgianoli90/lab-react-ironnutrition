@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 30px 0;
 }
 
 .App-logo {
@@ -30,4 +31,30 @@
 .box {
   display: flex;
   justify-content: center;
+}
+
+.searchbutton {
+  width: 30px;
+  height: 30px
+}
+
+#root > div > div.Search > form { 
+  display: flex;
+  justify-content: center;
+  padding: 30px 50px;
+}
+
+#root > div > div.Search > form > input[type=text]:nth-child(1){
+  width:70%
+}
+
+#root > div > form {
+  padding: 30px 0;
+}
+
+.foodList {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+    align-items: flex-start;
 }

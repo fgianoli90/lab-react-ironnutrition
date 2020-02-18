@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+// import AddTodaysFood from './AddTodaysFood.js'
+
 
 
 class Foodbox extends Component {
-    // state = {
-    //     Food: [...this.Foodbox]
-    // }
+    state = {
+        quantity: 0 
+    }
     
     // handleSubmit = (event) => {
 	
@@ -15,21 +17,32 @@ class Foodbox extends Component {
     //     this.props.filterTheFood(this.state)
     // }
     
-    // handleChange=(e)=>{
+    changeQuantity=(e)=>{
+        console.log('enter updateSelection',e.target.value)
+        // this.props.updateTheQuantity(e.target.value)
+        let quantityUsed=e.target.value
+        this.setState({
+            quantity: quantityUsed
+        })
         
-    //     this.setState({
-    //         Food: e.target.name
-    //     })
+    }
+  
+    // handleClick=(e)=>{
+    //     console.log("handle selection",e.target.name)
+    //     let nameOfFood=e.target.name
+    //     this.props.selectTheFood(nameOfFood)
+    //     // this.state.selected=true
+    //     // this.props.updateTheSelection(this.state)
     // }
-
-
-    render() {
+    
+    
+    render(){
         return(
             <div className="box">
                 <article className="media">
                     <div className="media-left">
                         <figure className="image is-64x64">
-                        <img src={this.props.image} />
+                        <img src={this.props.image} alt="error loading"/>
                         </figure>
                     </div>
                     <div className="media-content">
@@ -44,15 +57,20 @@ class Foodbox extends Component {
                         <div className="field has-addons">
                             <div className="control">
                                 <input
+                                onChange={this.changeQuantity}
                                 className="input"
                                 type="number" 
-                                value={this.props.quantity}
+                                // value={this.props.quantity}
                                 />
                             </div>
                             <div className="control">
-                                <button onClick={this.handleSubmit} className="button is-info">
+                                <button onClick={()=>this.props.addTheList(this.props.name,this.props.calories,this.state.quantity)} className="button is-info" type="text">
                                     Add
                                 </button>
+                                {/* <AddTodaysFood
+                                    propsSelect={this.state}
+                                    updateTheSelection={this.updateSelection}
+                                /> */}
                             </div>
                         </div>
                     </div>
